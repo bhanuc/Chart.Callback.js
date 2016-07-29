@@ -6,36 +6,42 @@ It is useful to make charts more interactive, like getting range when zooming in
 
 ## Configuration
 
-To configure the Callback plugin, you can simply add new config options to your chart config. Remember only add callbacks that are important to you. Remove useless empty functions before using it.
+To configure the Callback plugin, you can simply add new config options to your chart config. Remember only add callbacks that are important to you. Remove the callbacks which you are not using.
 
 ```javascript
 {
-	// Container for pan options
-	chartCallBacks: {
-    beforeInit: function(chartInstance) { },
-    afterInit: function(chartInstance) { },
+    type: 'bar',
+    data: barChartData,
+    options: {
+		{
+			// Container for callbacks options
+			chartCallBacks: {
+		    beforeInit: function(chartInstance) { },
+		    afterInit: function(chartInstance) { },
 
-    resize: function(chartInstance, newChartSize) { },
+		    resize: function(chartInstance, newChartSize) { },
 
-    beforeUpdate: function(chartInstance) { },
-    afterScaleUpdate: function(chartInstance) { }
-    beforeDatasetsUpdate: function(chartInstance) { }
-    afterDatasetsUpdate: function(chartInstance) { }
-    //this is useful after resize/zoom operation is complete
-    afterUpdate: function(chartInstance) { },
+		    beforeUpdate: function(chartInstance) { },
+		    afterScaleUpdate: function(chartInstance) { }
+		    beforeDatasetsUpdate: function(chartInstance) { }
+		    afterDatasetsUpdate: function(chartInstance) { }
+		    //this is useful after resize/zoom operation is complete
+		    afterUpdate: function(chartInstance) { },
 
-    // This is called at the start of a render. It is only called once, even if the animation will run for a number of frames. Use beforeDraw or afterDraw
-    // to do something on each animation frame
-    beforeRender: function(chartInstance) { },
+		    // This is called at the start of a render. It is only called once, even if the animation will run for a number of frames. Use beforeDraw or afterDraw
+		    // to do something on each animation frame
+		    beforeRender: function(chartInstance) { },
 
-    // Easing is for animation
-    beforeDraw: function(chartInstance, easing) { },
-    afterDraw: function(chartInstance, easing) { },
-    // Before the datasets are drawn but after scales are drawn
-    beforeDatasetsDraw: function(chartInstance, easing) { },
-    afterDatasetsDraw: function(chartInstance, easing) { },
+		    // Easing is for animation
+		    beforeDraw: function(chartInstance, easing) { },
+		    afterDraw: function(chartInstance, easing) { },
+		    // Before the datasets are drawn but after scales are drawn
+		    beforeDatasetsDraw: function(chartInstance, easing) { },
+		    afterDatasetsDraw: function(chartInstance, easing) { },
 
-    destroy: function(chartInstance) { }
+		    destroy: function(chartInstance) { }
+		}
+	}
 }
 ```
 
